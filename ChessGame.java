@@ -1,9 +1,16 @@
+
+import java.util.List;
+
 public class ChessGame {
-    private ChessBoard chessBoard;
+    private final ChessBoard chessBoard;
+    private boolean whiteToMove;
+    private List<ChessMove> moveHistory;
 
     public ChessGame() {
         chessBoard = new ChessBoard();
         initializePieces();
+        whiteToMove = true;
+        moveHistory = new java.util.ArrayList<>();
     }
 
     private void initializePieces() {
