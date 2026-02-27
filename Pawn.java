@@ -45,5 +45,6 @@ public class Pawn implements ChessPiece {
             }
         }
         return false; // Invalid move
-    
+    }
 }
+
