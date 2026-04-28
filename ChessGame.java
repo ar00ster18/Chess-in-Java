@@ -25,6 +25,10 @@ public class ChessGame {
         chessBoard.setPiece(7, 7, new Rook("white"));
         chessBoard.setPiece(0, 0, new Rook("black"));
         chessBoard.setPiece(7, 0, new Rook("black"));
+        chessBoard.setPiece(2, 7, new Bishop("white"));
+        chessBoard.setPiece(5, 7, new Bishop("white"));
+        chessBoard.setPiece(2, 0, new Bishop("black"));
+        chessBoard.setPiece(5, 0, new Bishop("black"));
     }
 
     /**
