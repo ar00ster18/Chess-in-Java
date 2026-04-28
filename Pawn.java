@@ -6,6 +6,7 @@
 public class Pawn implements ChessPiece {
     private final String color;
 
+    /** @param color "white" or "black". */
     public Pawn(String color) {
         this.color = color;
     }

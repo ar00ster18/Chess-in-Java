@@ -5,6 +5,7 @@
 public class Rook implements ChessPiece {
     private final String color;
 
+    /** @param color "white" or "black". */
     public Rook(String color) {
         this.color = color;
     }

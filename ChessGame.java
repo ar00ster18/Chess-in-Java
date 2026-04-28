@@ -8,6 +8,7 @@ public class ChessGame {
     private boolean whiteToMove;
     private List<ChessMove> moveHistory;
 
+    /** Creates a new game with all pieces in their starting positions. White moves first. */
     public ChessGame() {
         chessBoard = new ChessBoard();
         initializePieces();

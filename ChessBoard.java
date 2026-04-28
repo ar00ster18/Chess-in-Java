@@ -32,7 +32,10 @@ public class ChessBoard {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
 
+    /** Returns the x coordinate of the en passant target, or -1 if none. */
     public int getEnPassantX() { return enPassantX; }
+
+    /** Returns the y coordinate of the en passant target, or -1 if none. */
     public int getEnPassantY() { return enPassantY; }
 
     /** Sets the en passant target square after a pawn double push. */
