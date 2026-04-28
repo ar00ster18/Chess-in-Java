@@ -29,9 +29,11 @@ public class Pawn implements ChessPiece {
             if (startX == endX && startY == 6 && endY == 4 && chessBoard.getPiece(endX, 5) == null && chessBoard.getPiece(endX, 4) == null) {
                 return true; // Move forward two squares from starting position
             }
-            if (Math.abs(startX - endX) == 1 && startY - 1 == endY && chessBoard.getPiece(endX, endY) != null && !chessBoard.getPiece(endX, endY).getColor().equals(color)) {
-                return true; // Capture diagonally
-            }    
+            if (Math.abs(startX - endX) == 1 && startY - 1 == endY) {
+                ChessPiece target = chessBoard.getPiece(endX, endY);
+                if (target != null && !target.getColor().equals(color)) return true;
+                if (endX == chessBoard.getEnPassantX() && endY == chessBoard.getEnPassantY()) return true;
+            }
         } else {
             // Black pawns move down the board (increasing y)
             if (startX == endX && startY + 1 == endY && chessBoard.getPiece(endX, endY) == null) {
@@ -40,8 +42,10 @@ public class Pawn implements ChessPiece {
             if (startX == endX && startY == 1 && endY == 3 && chessBoard.getPiece(endX, 2) == null && chessBoard.getPiece(endX, 3) == null) {
                 return true; // Move forward two squares from starting position
             }
-            if (Math.abs(startX - endX) == 1 && startY + 1 == endY && chessBoard.getPiece(endX, endY) != null && !chessBoard.getPiece(endX, endY).getColor().equals(color)) {
-                return true; // Capture diagonally
+            if (Math.abs(startX - endX) == 1 && startY + 1 == endY) {
+                ChessPiece target = chessBoard.getPiece(endX, endY);
+                if (target != null && !target.getColor().equals(color)) return true;
+                if (endX == chessBoard.getEnPassantX() && endY == chessBoard.getEnPassantY()) return true;
             }
         }
         return false; // Invalid move

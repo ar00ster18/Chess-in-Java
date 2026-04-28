@@ -25,11 +25,27 @@ public class ChessGame {
 
     public boolean movePiece(int startX, int startY, int endX, int endY) {
         ChessPiece piece = chessBoard.getPiece(startX, startY);
-        if (piece != null && piece.canMoveToPosition(chessBoard, startX, startY, endX, endY)) {
-            chessBoard.setPiece(endX, endY, piece);
-            chessBoard.setPiece(startX, startY, null);
-            return true;
+        if (piece == null || !piece.canMoveToPosition(chessBoard, startX, startY, endX, endY)) {
+            return false;
         }
-        return false;
+
+        boolean isEnPassant = piece.getType().equals("Pawn")
+                && Math.abs(startX - endX) == 1
+                && chessBoard.getPiece(endX, endY) == null;
+
+        chessBoard.setPiece(endX, endY, piece);
+        chessBoard.setPiece(startX, startY, null);
+
+        if (isEnPassant) {
+            chessBoard.setPiece(endX, startY, null);
+        }
+
+        if (piece.getType().equals("Pawn") && Math.abs(startY - endY) == 2) {
+            chessBoard.setEnPassantTarget(endX, (startY + endY) / 2);
+        } else {
+            chessBoard.clearEnPassantTarget();
+        }
+
+        return true;
     }
 }
