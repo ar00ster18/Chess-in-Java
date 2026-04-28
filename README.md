@@ -12,10 +12,12 @@ An object-oriented chess engine built from scratch in Java.
 ## Current Features
 
 - Pawn movement: one square forward, two squares from starting position, diagonal capture, en passant
+- Rook movement: any number of squares horizontally or vertically
+- Bishop movement: any number of squares diagonally
 
 ## Planned Features
 
-- Remaining pieces (Rook, Knight, Bishop, Queen, King)
+- Remaining pieces (Knight, Queen, King)
 - Turn enforcement
 - Check and checkmate detection
 - Castling
