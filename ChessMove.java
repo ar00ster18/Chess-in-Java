@@ -1,3 +1,7 @@
+/**
+ * Represents a single chess move in algebraic notation.
+ * rank = row (1–8), file = column (a–h).
+ */
 public class ChessMove {
     private final ChessPiece piece;
     private final char rank;
